@@ -13,6 +13,6 @@ Backend is created using Springboot,hibernate,jpa
 Start the server by running the main file namely Application.java as a java program.
 Spring security has been used for authentication and authorization.
 Mysql database has been used to store data into the database.
-Hibernate is used to create the table automatically if the table is not present.
+Hibernate is used to create the table automatically if the table is not present and for firing queries to db.
 BCryptPasswordEncoder is used to store the password in the db.
 Rest end point (http://localhost:4200/viewAllUsers) is accessible only when the user is logged in and have a valid token.
