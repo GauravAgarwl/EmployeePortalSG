@@ -13,6 +13,17 @@ import javax.persistence.Table;
 @Table(name="T_EmployeeModel")
 public class EmployeeModel {
 
+	public EmployeeModel()
+	{
+	}
+	public EmployeeModel(int id, String firstName, String lastName, String gender, String department) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.department = department;
+	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
