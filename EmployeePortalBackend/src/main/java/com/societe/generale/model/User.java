@@ -8,6 +8,15 @@ import javax.persistence.*;
 @Table(name = "user")
 public class User {
 
+    public User()
+	{
+	}
+    public User(int id, String username, String password) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+	}
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
