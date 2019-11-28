@@ -18,6 +18,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.societe.generale.dao.EmployeeDAO;
+import com.societe.generale.model.EmployeeBuilder;
 import com.societe.generale.model.EmployeeModel;
 import com.societe.generale.service.impl.EmployeeServiceImpl;
 
@@ -40,9 +41,15 @@ public class EmployeeServiceTest {
 	public void getAllEmployeesTest() {
 		List<EmployeeModel> list = new ArrayList<EmployeeModel>();
 		Date testDate = new Date(01/01/1970);
-		EmployeeModel emp1 = new EmployeeModel(1,"Gaurav","Agarwal","M","R&D",testDate);
-		EmployeeModel emp2 = new EmployeeModel(1,"Ankur","Agarwal","M","R&D",testDate);
-		EmployeeModel emp3 = new EmployeeModel(1,"Abhishek","Agarwal","M","R&D",testDate);
+		EmployeeModel emp1 = new EmployeeBuilder().setId(1).setFirstName("Gaurav").setLastName("Agarwal")
+							.setDepartment("R&D").setGender("M").setDateOfBirth(testDate).getEmployee();
+		
+		EmployeeModel emp2 = new EmployeeBuilder().setId(1).setFirstName("Ankur").setLastName("Agarwal")
+				.setDepartment("R&D").setGender("M").setDateOfBirth(testDate).getEmployee();
+
+		EmployeeModel emp3 = new EmployeeBuilder().setId(1).setFirstName("Abhishek").setLastName("Agarwal")
+				.setDepartment("R&D").setGender("M").setDateOfBirth(testDate).getEmployee();
+
 		list.add(emp1);
 		list.add(emp2);
 		list.add(emp3);
@@ -57,8 +64,9 @@ public class EmployeeServiceTest {
 	 public void createEmployeeTest()
 	 {
 		 Date testDate = new Date(01/01/1970);
-		 EmployeeModel emp = new EmployeeModel(1,"Gaurav","Agarwal","M","R&D",testDate);
-	         
+		 EmployeeModel emp = new EmployeeBuilder().setId(1).setFirstName("Gaurav").setLastName("Agarwal")
+					.setDepartment("R&D").setGender("M").setDateOfBirth(testDate).getEmployee();
+		 
 		 employeeService.save(emp);
 	         
 	     verify(employeeDAO, times(1)).save(emp);
