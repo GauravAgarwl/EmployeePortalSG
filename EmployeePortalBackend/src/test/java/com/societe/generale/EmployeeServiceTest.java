@@ -4,6 +4,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,9 +39,10 @@ public class EmployeeServiceTest {
 	@Test
 	public void getAllEmployeesTest() {
 		List<EmployeeModel> list = new ArrayList<EmployeeModel>();
-		EmployeeModel emp1 = new EmployeeModel(1,"Gaurav","Agarwal","M","R&D");
-		EmployeeModel emp2 = new EmployeeModel(1,"Ankur","Agarwal","M","R&D");
-		EmployeeModel emp3 = new EmployeeModel(1,"Abhishek","Agarwal","M","R&D");
+		Date testDate = new Date(01/01/1970);
+		EmployeeModel emp1 = new EmployeeModel(1,"Gaurav","Agarwal","M","R&D",testDate);
+		EmployeeModel emp2 = new EmployeeModel(1,"Ankur","Agarwal","M","R&D",testDate);
+		EmployeeModel emp3 = new EmployeeModel(1,"Abhishek","Agarwal","M","R&D",testDate);
 		list.add(emp1);
 		list.add(emp2);
 		list.add(emp3);
@@ -54,7 +56,8 @@ public class EmployeeServiceTest {
 	 @Test
 	 public void createEmployeeTest()
 	 {
-		 EmployeeModel emp = new EmployeeModel(1,"Gaurav","Agarwal","M","R&D");
+		 Date testDate = new Date(01/01/1970);
+		 EmployeeModel emp = new EmployeeModel(1,"Gaurav","Agarwal","M","R&D",testDate);
 	         
 		 employeeService.save(emp);
 	         
