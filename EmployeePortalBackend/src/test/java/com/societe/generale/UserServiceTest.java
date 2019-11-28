@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.societe.generale.dao.UserDao;
 import com.societe.generale.model.User;
+import com.societe.generale.model.UserBuilder;
 import com.societe.generale.service.impl.UserServiceImpl;
 
 
@@ -35,8 +36,9 @@ public class UserServiceTest {
 	@Test
 	public void saveUser()
 	{
-		User user = new User(1,"Lokesh","Gupta");
         
+		User user = new UserBuilder().setId(1).setUsername("Gaurav").setPassword("Agarwal").getUser();
+		
 		userDao.save(user);
          
         verify(userDao, times(1)).save(user);
@@ -46,10 +48,10 @@ public class UserServiceTest {
 	@Test
 	public void findOneUser()
 	{
-		 when(userDao.findByUsername("Gaurav")).thenReturn(new User(1,"Lokesh","Gupta"));
+		 when(userDao.findByUsername("Gaurav")).thenReturn(new UserBuilder().setId(1).setUsername("Gaurav").setPassword("Agarwal").getUser());
          
 		User user = userService.findOne("Gaurav");
-		assertEquals("Lokesh", user.getUsername());
+		assertEquals("Gaurav", user.getUsername());
 	}
 
 }
