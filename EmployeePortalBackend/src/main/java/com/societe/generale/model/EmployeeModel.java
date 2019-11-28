@@ -16,13 +16,14 @@ public class EmployeeModel {
 	public EmployeeModel()
 	{
 	}
-	public EmployeeModel(int id, String firstName, String lastName, String gender, String department) {
+	public EmployeeModel(int id, String firstName, String lastName, String gender, String department,Date dateOfBirth) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
 		this.department = department;
+		this.dateOfBirth = dateOfBirth;
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
